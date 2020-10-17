@@ -1,2 +1,2 @@
 # graphical
-Raspberry Pi, SenseAir CO2 sensor or MightyOhm geiger counter. Graphical representation of (nearly) real time data acquisition + logging. Room.png shows CO2 levels in a bedroom overnight and the exquisite sensitivity of SenseAir. 
+Raspberry Pi, SenseAir CO2 sensor or MightyOhm geiger counter. Graphical representation of (nearly) real time data acquisition + logging. Room.png shows CO2 levels in a bedroom overnight and the exquisite sensitivity of SenseAir. Geiger.png shows backgroung radiation data from serial communication with MightyOhm monitor and RPi. These programs will work with other computers using FTI Friend USB connector and modifing the script as outlined in geiger.py.
