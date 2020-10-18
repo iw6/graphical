@@ -6,18 +6,20 @@
 # RPi Terminal- sudo nano /boot/cmdline.txt  Remove console-serial0,115300
 # Install matplotlib. sudo apt-get install python3-matplotlib
 
-# Connect to MightyOhm
-# See https://mightyohm.com/blog/2012/02/tutorial-geiger-counter-data-logging/
-# Colours shown in the figure on page 3 of this web site: Connect
+# Two ways to connect to MightyOhm (mightyohm.com)
+
+# 1. Using three jumper leads to RPi gpio pins
+# Colours shown in the figure on page 3, https://mightyohm.com/blog/2012/02/tutorial-geiger-counter-data-logging/: Connect
 # MightyOhm J7 pin 1 (black) to RPi pin 6 (Gnd) (Colours shown in the figure on page 3 in web site above)
 # MightyOhm J7 pin 4 (Rx orange) to RPi pin 8 (Tx)
 # MightyOhm J7 pin 5 (Tx yellow) to RPi pin 10 (Rx)
-
 # See raspberrypi.org/magpi Issue 67, Bill Ballard, Simple Pi Geiger Counter Display
 
-# When using FTDI Friend USB adapter with a non-RPi computer running Ubuntu, make USB0 available: 
-# sudo chmod -R 777 /dev/ttyUSB0)
-# Change  line 29 to: ser = serial.Serial("/dev/ttyUSB0",baudrate =9600, timeout = 0.5)
+#2. Using FTDI Friend USB adapter(Amazon)
+# To make it available, plug it in and in RPi terminal: 
+# sudo chmod -R 777 /dev/ttyUSB0
+# Change  line 31 to: ser = serial.Serial("/dev/ttyUSB0",baudrate =9600, timeout = 0.5)
+# Method #2 will also work with with non-Rasperry Pi computers running Ubuntu with matplotlib installed
 
 import serial
 import matplotlib.pyplot as plt
