@@ -30,7 +30,7 @@ import csv
 
 ser = serial.Serial("/dev/ttyUSB0",baudrate =9600, timeout = 0.5)
 print (" MightyOhm to Raspberry Pi3 Via UART\n")
-# If this dose not print, serial interface is not working
+# If this does not print, serial interface is not working
 
 plt.ion
 
