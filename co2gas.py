@@ -18,7 +18,7 @@ from datetime import datetime
 import csv
 
 ser = serial.Serial('/dev/ttyS0',baudrate = 9600, timeout = 0.5)
-print (' AN-137: Raspberry Pi3 to K-30 Via UART\n')
+print (' AN-137: Raspberry Pi to K-30 Via UART\n')
 ser.flushInput()
 
 plt.ion()
@@ -43,21 +43,23 @@ def write_gas(gas):
 
 def graph(gas):
     ax.clear()
+    # find the highest co2 value and add 100 to autoscale y-axis 
+    hico2 = int(max(y) + 100)
+    
     a = [datetime.strptime(d,'%d-%m-%Y %H:%M:%S') for d in x]  
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))     
     ax.plot(a,y, marker = '.', linewidth = 1, color='red')
     ax.xaxis.set_major_locator(plt.MaxNLocator(8))
     ax.tick_params(axis='x',labelrotation = 30)
-    ax.set_ylabel('(CO\u2082 ppm)',fontsize = 12)
-    ax.set_ylim(400,1800)
+    ax.set_ylabel('CO\u2082 (ppm)',fontsize = 12)
+    ax.set_ylim(400,hico2)
     ax.set_xlabel('Time', fontsize = 12)
     ax.set_title(f' Last update {t_time}  Pause ~ {round((pa+20)/60,2)}min. Path + file name: {filename}', fontsize = 12)
-    fig.suptitle('SenseAir S8 CO\u2082 monitor',fontsize = 14)
-    
+    fig.suptitle('SenseAir S8 CO\u2082 monitor',fontsize = 14)    
     
 while True:
     #Enter pause time pa seconds
-    pa = 6
+    pa = 900
     
     ser.flushInput()    
     ser.write(b'\xFE\x44\x00\x08\x02\x9F\x25')
