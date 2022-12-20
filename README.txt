@@ -7,4 +7,4 @@ To run any of these files RPi needs Python 3 and Matplotlib. Graphical represent
 6. Pimoroni BME688. Inkyphat. inkybme680.py updates temperature, humidity and pressure every hour plus readings from the previous hour - shown in inky.jpg. This and air_logger.py are combined in inky_air.py -- after power outage, readings are restored.
 7. Pimoroni BME688. pressure_mm.py plots just pressure and records min max values. . temp-hum.py plots temperature and humidity changes on one graph with two axis and records min max temperatures over a 24h period. See Fig temp_hum.jpg
 8. The i2c connected BME series can coexist with serial input such as the CO2 sensor above to give graphical output together temp_co2.py and picture temp_co2_mm.jpg For rapid updates results can be shown on oled screen (ssd1306.jpg) or sh1106.jpg
-
+Arduino program sketch_SCD40_SSD1306.ino using Sensirion SCD40 detector to show CO2 levels on SSD1306 OLED.
